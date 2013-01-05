@@ -9,7 +9,7 @@ python touchpad.py [OPTIONS]
 
 @example
 ========
-pytho touchpad.py enable
+python touchpad.py enable
 
 @options
 ========

@@ -5,11 +5,11 @@ Enable / Disable touchpad using Python (uses xinput).
 
 @usage
 =======
-python touchpad.py [OPTIONS]
+	./touchpad.py [OPTIONS]
 
 @example
 ========
-python touchpad.py enable
+	./touchpad.py enable
 
 @options
 ========

@@ -13,14 +13,14 @@ python touchpad.py enable
 
 @options
 ========
-enable
+**enable**
 
 	- Enables the touchpad
               
-disable
+**disable**
 
 	- Disables the touchpad
               
-status
+**status**
 
 	- Display the touchpad device status

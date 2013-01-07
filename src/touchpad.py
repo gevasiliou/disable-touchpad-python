@@ -18,9 +18,9 @@
 #              Display the touchpad device status
 #
 
-import sys;
-import subprocess;
-import re;
+import sys
+import subprocess
+import re
 
 statusFlag = {'--enable': 'Enabled', '--disable': 'Disabled'}
 

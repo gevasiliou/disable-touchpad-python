@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 # @author: Karthik VJ
 # @usage: 
@@ -35,8 +35,9 @@ def getDeviceId():
   data = subprocess.check_output(['xinput', '--list'])    
   deviceId = 'none'
   
-  for line in data.splitlines():    
-    if 'Touch' in line:
+  for line in data.splitlines():
+    line = line.lower()    
+    if 'touchpad' in line and 'pointer' in line:
       line = line.strip()
       match = re.search('id=([0-9]+)', line)
       deviceId = str(match.group(1))
@@ -62,9 +63,9 @@ def setEnabled(state):
     
   if(flag != 'none'):
     try:
-      subprocess.check_call(['xinput', flag, deviceId])
+      subprocess.check_call(['xinputs', flag, deviceId])
       print('Status: %s' % statusFlag[flag])
-    except Exception as e:
+    except Exception:
       print('Device cannot be set to %s' %flag)       
     
 

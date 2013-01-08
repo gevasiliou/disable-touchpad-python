@@ -36,7 +36,7 @@ def getDeviceId():
   deviceId = 'none'
   
   for line in data.splitlines():    
-    if 'Touchpad' in line:
+    if 'Touch' in line:
       line = line.strip()
       match = re.search('id=([0-9]+)', line)
       deviceId = str(match.group(1))

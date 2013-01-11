@@ -32,7 +32,12 @@ def getDeviceName(deviceId):
   
 # Gets the touch device ID
 def getDeviceId():
-  data = subprocess.check_output(['xinput', '--list'])    
+  try:
+    data = subprocess.check_output(['xinput', '--list'])
+  except Exception:
+    print("xinput not found!")
+    sys.exit();
+        
   deviceId = 'none'
   
   for line in data.splitlines():
@@ -63,9 +68,9 @@ def setEnabled(state):
     
   if(flag != 'none'):
     try:
-      subprocess.check_call(['xinputs', flag, deviceId])
+      subprocess.check_call(['xinput', flag, deviceId])
       print('Status: %s' % statusFlag[flag])
-    except Exception:
+    except Exception:      
       print('Device cannot be set to %s' %flag)       
     
 

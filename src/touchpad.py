@@ -106,7 +106,7 @@ def deviceStatus():
 
 # Main      
 def main(): 
-  parser = OptionParser(usage="usage: %prog [options]", version="%prog 1.0")
+  parser = OptionParser(usage="usage: %prog [options]", version="%prog 1.0", description="Example: %prog -e")
   parser.add_option("-s", "--status", default=False, action="store_true", help="Display the status of the Touchpad")
   parser.add_option("-e", "--enable", default=False, action="store_true", help="Enable Touchpad Device")
   parser.add_option("-d", "--disable",default=False, action="store_true", help="Disable Touchpad Device")

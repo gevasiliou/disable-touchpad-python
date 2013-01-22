@@ -5,22 +5,26 @@
 #        python touchpad.py [OPTIONS]
 #
 # @example
-#        python touchpad.py enable
+#        python touchpad.py -e
 #
 # @options:
-#        enable
+#        -e
 #              Enables the touchpad
 #              
-#        disable
+#        -d
 #              Disables the touchpad
 #              
-#        status
+#        -s
 #              Display the touchpad device status
+#
+#        -h
+#              Help
 #
 
 import sys
 import subprocess
 import re
+from optparse import OptionParser
 
 statusFlag = {'--enable': 'Enabled', '--disable': 'Disabled'}
 
@@ -101,21 +105,24 @@ def deviceStatus():
 
 
 # Main      
-def main():  
-  operation = 'none'  
-  
-  # action argument
-  if(len(sys.argv) > 1):  
-    operation = sys.argv[1]
+def main(): 
+  parser = OptionParser(usage="usage: %prog [options]", version="%prog 1.0")
+  parser.add_option("-s", "--status", default=False, action="store_true", help="Display the status of the Touchpad")
+  parser.add_option("-e", "--enable", default=False, action="store_true", help="Enable Touchpad Device")
+  parser.add_option("-d", "--disable",default=False, action="store_true", help="Disable Touchpad Device")
+  (options, args) = parser.parse_args()
         
-  if operation == 'status':
+  if options.status == True:
+    print("Touchpad device status...")
     deviceStatus()
-  elif operation == 'enable':
+  elif options.enable == True:
+    print("Enabling the Touchpad device...")
     setEnabled('true')
-  elif operation == 'disable':
+  elif options.disable == True:
+    print("Disabling the Touchpad device...")
     setEnabled('false')
   else:
-    print("Use [enable, disable, status] as options!")
+    parser.print_help()
                       
 
 

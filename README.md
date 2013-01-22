@@ -9,18 +9,22 @@ Enable / Disable touchpad using Python (uses xinput).
 
 @example
 ========
-	./touchpad.py enable
+	./touchpad.py -e
 
 @options
 ========
-**enable**
+**-e**
 
 - Enables the touchpad
               
-**disable**
+**-d**
 
 - Disables the touchpad
               
-**status**
+**-s**
 
 - Display the touchpad device status
+
+**-h**
+
+- Help
